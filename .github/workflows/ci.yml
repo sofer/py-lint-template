@@ -36,14 +36,14 @@
          run: flake8 .
 
        - name: MyPy
-        run: |
-          mypy .
-          rc=$?
-          if [ $rc -eq 2 ]; then
-            echo "No source files found, skipping mypy."
-            exit 0
-          fi
-          exit $rc
+         run: |
+           mypy .
+           rc=$?
+           if [ $rc -eq 2 ]; then
+             echo "No source files found, skipping mypy."
+             exit 0
+           fi
+           exit $rc
 
        - name: Bandit
          run: bandit -r .
