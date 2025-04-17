@@ -1,0 +1,57 @@
+ [build-system]
+ requires = ["setuptools>=42", "wheel"]
+ build-backend = "setuptools.build_meta"
+
+ [project]
+ name = "<PROJECT_NAME>"
+ version = "0.1.0"
+ description = "<A short description of your project>"
+ readme = "README.md"
+ requires-python = ">=3.8"
+ authors = [
+   { name = "<Your Name>", email = "<you@example.com>" },
+ ]
+ dependencies = []
+
+ [project.optional-dependencies]
+ dev = [
+   "black>=23.9.1",
+   "isort>=5.12.0",
+   "flake8>=6.1.0",
+   "flake8-builtin-names",
+   "flake8-docstrings",
+   "flake8-complexity",
+   "flake8-annotations",
+   "mypy>=0.991",
+   "bandit>=1.7.5",
+   "pip-audit",
+   "pytest",
+   "coverage",
+   "pre-commit",
+ ]
+ [tool.black]
+ line-length = 88
+ target-version = ["py38", "py39", "py310", "py311"]
+ include = '\.pyi?$'
+ exclude = '''
+ /(
+   \.git
+   | \.hg
+   | \.mypy_cache
+   | \.tox
+   | \.venv
+   | _build
+   | buck-out
+   | build
+   | dist
+ )/
+ '''
+
+ [tool.isort]
+ profile = "black"
+ line_length = 88
+
+ [tool.mypy]
+ python_version = 3.8
+ ignore_missing_imports = true
+ strict = true
